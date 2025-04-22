@@ -1,7 +1,8 @@
 FROM nginx:alpine
 
 # Copy the HTML file to the Nginx html directory
-COPY *.html /assets/ /usr/share/nginx/html/
+COPY *.html /usr/share/nginx/html/
+COPY /assets/ /usr/share/nginx/html/assets/
 
 # Expose port 80
 EXPOSE 8880
