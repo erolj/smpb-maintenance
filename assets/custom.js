@@ -4,8 +4,8 @@ const logoImg = document.getElementById("logo");
 
 // Function to update logo based on theme
 function updateLogo(theme) {
-  const darkSrc = "./assets/sulut-dark.png";
-  const lightSrc = "./assets/sulut-light.png";
+  const darkSrc = "./assets/sulut_dark.png";
+  const lightSrc = "./assets/sulut_light.png";
   logoImg.src = theme === "dark" ? darkSrc : lightSrc;
 }
 
