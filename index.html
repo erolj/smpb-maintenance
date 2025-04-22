@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPMB - Dalam Pemeliharaan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'playfair': ['"Playfair Display"', 'serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-custom': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 1s ease-in-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            
+            .container-line::before,
+            .container-line::after {
+                content: '';
+                @apply absolute w-[100px] h-[1px] left-1/2 transform -translate-x-1/2;
+                background: linear-gradient(90deg, transparent, #2563eb, transparent);
+            }
+            
+            .dark .container-line::before,
+            .dark .container-line::after {
+                background: linear-gradient(90deg, transparent, #60a5fa, transparent);
+            }
+            
+            .container-line::before {
+                @apply top-[-40px];
+            }
+            
+            .container-line::after {
+                @apply bottom-[-40px];
+            }
+            
+            @keyframes pulse {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+                }
+                70% {
+                    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+                }
+                100% {
+                    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+                }
+            }
+            
+            .dark .pulse-badge {
+                animation: darkPulse 2s infinite;
+            }
+            
+            @keyframes darkPulse {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.4);
+                }
+                70% {
+                    box-shadow: 0 0 0 10px rgba(248, 113, 113, 0);
+                }
+                100% {
+                    box-shadow: 0 0 0 0 rgba(248, 113, 113, 0);
+                }
+            }
+        }
+    </style>
+</head>
+<body class="font-montserrat bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 min-h-screen flex flex-col overflow-x-hidden font-light transition-colors duration-300">
+    <div class="absolute top-4 right-4 md:top-8 md:right-8 z-10">
+        <button id="theme-toggle" class="p-2 rounded-full bg-white dark:bg-slate-800 shadow-md border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:shadow-lg" title="Toggle dark mode">
+            <!-- Sun icon (for dark mode) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-800 dark:text-slate-200 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <!-- Moon icon (for light mode) -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-800 dark:text-slate-200 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+        </button>
+    </div>
+
+    <main class="flex-1 py-24 flex items-center justify-center min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center text-center gap-12 animate-fade-in relative container-line max-w-3xl w-full">
+                <h1 class="font-playfair text-5xl md:text-6xl mb-2 text-blue-600 dark:text-blue-400 font-bold -tracking-[0.5px]">
+                    Maintenance
+                </h1>
+                
+                <div class="flex flex-col gap-10">
+                    <p class="text-xl leading-relaxed tracking-wide max-w-2xl mx-auto">
+                        Website SPMB sedang dalam penyesuaian dengan Petunjuk Teknis Terbaru yang memuat regulasi, persyaratan, kuota dan jalur pendaftaran terbaru.
+                    </p>
+                    
+                    <p class="text-xl leading-relaxed tracking-wide max-w-2xl mx-auto">
+                        Pendaftaran SPMB belum dibuka, akan diumumkan kemudian.
+                    </p>
+                    
+                    <div class="inline-block bg-red-100 dark:bg-red-900/30 text-red-500 dark:text-red-400 py-2 px-8 rounded-full font-medium text-base tracking-wider mt-4 pulse-badge" style="animation: pulse 2s infinite">
+                        Sistem Sedang Diperbaharui
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-slate-400 dark:text-slate-500 text-sm tracking-wider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p>&copy; 2025 Dinas Pendidikan Daerah Provinsi Sulawesi Utara.</p>
+        </div>
+    </footer>
+
+    <script src="custom.js" />
+</body>
+</html>
