@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: spmb-maintenance
     ports:
-      - "80:80"
+      - "8880:80"
     restart: unless-stopped
     # If you need to mount volumes for logs or additional files
     # volumes:

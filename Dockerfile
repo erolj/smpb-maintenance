@@ -4,7 +4,7 @@ FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/index.html
 
 # Expose port 80
-EXPOSE 80
+EXPOSE 8880
 
 # Set proper permissions
 RUN chmod 644 /usr/share/nginx/html/index.html
